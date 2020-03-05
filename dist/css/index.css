@@ -1,0 +1,433 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  color: #000;
+  font-size: 12px; }
+
+body,
+html {
+  width: 100%;
+  height: 100%; }
+  body #container,
+  html #container {
+    width: 100%; }
+    body #container #top,
+    html #container #top {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative; }
+      body #container #top .top-banner,
+      html #container #top .top-banner {
+        width: 1200px;
+        overflow: hidden;
+        margin: 0 auto;
+        position: relative; }
+  body #hd,
+  html #hd {
+    width: 100%;
+    font: 12px 'Hiragino Sans GB', "simsun", "Arial"; }
+    body #hd #tools,
+    html #hd #tools {
+      width: 100%;
+      background-color: #f9f9f9;
+      border-bottom: 1px solid #f2f2f2;
+      height: 34px;
+      line-height: 34px;
+      position: relative;
+      z-index: 10010; }
+      body #hd #tools .tools,
+      html #hd #tools .tools {
+        width: 1200px;
+        margin: 0 auto;
+        background-color: #f9f9f9;
+        height: 34px; }
+        body #hd #tools .tools a,
+        html #hd #tools .tools a {
+          color: #646464; }
+        body #hd #tools .tools .hd-nav,
+        html #hd #tools .tools .hd-nav {
+          float: right;
+          padding-top: 2px; }
+          body #hd #tools .tools .hd-nav li,
+          html #hd #tools .tools .hd-nav li {
+            float: left;
+            height: 22px;
+            padding-top: 4px;
+            line-height: 21px;
+            background: url(../img/sprite2.png3.png) no-repeat left -285px;
+            position: relative;
+            z-index: 100; }
+            body #hd #tools .tools .hd-nav li:hover a,
+            html #hd #tools .tools .hd-nav li:hover a {
+              color: red; }
+            body #hd #tools .tools .hd-nav li:hover,
+            html #hd #tools .tools .hd-nav li:hover {
+              background-color: #fff; }
+            body #hd #tools .tools .hd-nav li:hover ul,
+            html #hd #tools .tools .hd-nav li:hover ul {
+              display: block; }
+            body #hd #tools .tools .hd-nav li:first-child,
+            html #hd #tools .tools .hd-nav li:first-child {
+              background: none; }
+            body #hd #tools .tools .hd-nav li:hover .menu_btn,
+            html #hd #tools .tools .hd-nav li:hover .menu_btn {
+              background-position: right -324px; }
+            body #hd #tools .tools .hd-nav li a,
+            html #hd #tools .tools .hd-nav li a {
+              display: block;
+              position: relative;
+              line-height: 21px;
+              padding: 0 7px 0 8px; }
+              body #hd #tools .tools .hd-nav li a .icon_card,
+              html #hd #tools .tools .hd-nav li a .icon_card {
+                float: left;
+                width: 15px;
+                height: 14px;
+                background: url(../img/gwc.png) no-repeat -40px -86px;
+                overflow: hidden;
+                margin: 3px 9px 0 0; }
+              body #hd #tools .tools .hd-nav li a b,
+              html #hd #tools .tools .hd-nav li a b {
+                color: red; }
+            body #hd #tools .tools .hd-nav li .menu_btn,
+            html #hd #tools .tools .hd-nav li .menu_btn {
+              background: url(../img/sprite3.png) no-repeat right -307px;
+              padding-right: 27px; }
+          body #hd #tools .tools .hd-nav .my_dd ul,
+          html #hd #tools .tools .hd-nav .my_dd ul {
+            position: absolute;
+            top: 21px;
+            left: 0px;
+            border: 1px solid #e6e6e6;
+            border-top: none;
+            background-color: #fff;
+            padding: 4px 0;
+            display: none; }
+            body #hd #tools .tools .hd-nav .my_dd ul li,
+            html #hd #tools .tools .hd-nav .my_dd ul li {
+              width: 82px;
+              float: none;
+              background: none; }
+              body #hd #tools .tools .hd-nav .my_dd ul li:hover,
+              html #hd #tools .tools .hd-nav .my_dd ul li:hover {
+                background-color: #eee; }
+              body #hd #tools .tools .hd-nav .my_dd ul li a,
+              html #hd #tools .tools .hd-nav .my_dd ul li a {
+                color: #646464;
+                padding: 0 0 0 8px;
+                line-height: 22px;
+                height: 22px;
+                display: block; }
+          body #hd #tools .tools .hd-nav .pc_mina ul,
+          html #hd #tools .tools .hd-nav .pc_mina ul {
+            position: absolute;
+            top: 21px;
+            left: 0px;
+            border: 1px solid #e6e6e6;
+            border-top: none;
+            background-color: #fff;
+            padding: 4px 0;
+            display: none; }
+            body #hd #tools .tools .hd-nav .pc_mina ul li,
+            html #hd #tools .tools .hd-nav .pc_mina ul li {
+              width: 82px;
+              float: none;
+              background: none; }
+              body #hd #tools .tools .hd-nav .pc_mina ul li:hover,
+              html #hd #tools .tools .hd-nav .pc_mina ul li:hover {
+                background-color: #eee; }
+              body #hd #tools .tools .hd-nav .pc_mina ul li a,
+              html #hd #tools .tools .hd-nav .pc_mina ul li a {
+                color: #646464;
+                padding: 0 0 0 8px;
+                line-height: 22px;
+                height: 22px;
+                display: block; }
+          body #hd #tools .tools .hd-nav .qiye ul,
+          html #hd #tools .tools .hd-nav .qiye ul {
+            position: absolute;
+            top: 21px;
+            left: 0px;
+            border: 1px solid #e6e6e6;
+            border-top: none;
+            background-color: #fff;
+            padding: 4px 0;
+            display: none; }
+            body #hd #tools .tools .hd-nav .qiye ul li,
+            html #hd #tools .tools .hd-nav .qiye ul li {
+              width: 82px;
+              float: none;
+              background: none; }
+              body #hd #tools .tools .hd-nav .qiye ul li:hover,
+              html #hd #tools .tools .hd-nav .qiye ul li:hover {
+                background-color: #eee; }
+              body #hd #tools .tools .hd-nav .qiye ul li a,
+              html #hd #tools .tools .hd-nav .qiye ul li a {
+                color: #646464;
+                padding: 0 0 0 8px;
+                line-height: 22px;
+                height: 22px;
+                display: block; }
+          body #hd #tools .tools .hd-nav .sup ul,
+          html #hd #tools .tools .hd-nav .sup ul {
+            position: absolute;
+            top: 21px;
+            left: 0px;
+            border: 1px solid #e6e6e6;
+            border-top: none;
+            background-color: #fff;
+            padding: 4px 0;
+            display: none; }
+            body #hd #tools .tools .hd-nav .sup ul li,
+            html #hd #tools .tools .hd-nav .sup ul li {
+              width: 82px;
+              float: none;
+              background: none; }
+              body #hd #tools .tools .hd-nav .sup ul li:hover,
+              html #hd #tools .tools .hd-nav .sup ul li:hover {
+                background-color: #eee; }
+              body #hd #tools .tools .hd-nav .sup ul li a,
+              html #hd #tools .tools .hd-nav .sup ul li a {
+                color: #646464;
+                padding: 0 0 0 8px;
+                line-height: 22px;
+                height: 22px;
+                display: block; }
+        body #hd #tools .tools .dd_member,
+        html #hd #tools .tools .dd_member {
+          padding: 5px 0 0 10px;
+          height: 24px;
+          line-height: 24px;
+          position: relative;
+          float: right;
+          z-index: 50; }
+          body #hd #tools .tools .dd_member span,
+          html #hd #tools .tools .dd_member span {
+            color: #646464; }
+            body #hd #tools .tools .dd_member span .login,
+            html #hd #tools .tools .dd_member span .login {
+              color: red; }
+        body #hd #tools .tools .city,
+        html #hd #tools .tools .city {
+          position: relative;
+          width: 90px; }
+          body #hd #tools .tools .city:hover,
+          html #hd #tools .tools .city:hover {
+            background-color: #fff; }
+          body #hd #tools .tools .city:hover ul,
+          html #hd #tools .tools .city:hover ul {
+            display: block; }
+          body #hd #tools .tools .city a,
+          html #hd #tools .tools .city a {
+            display: inline-block;
+            position: relative;
+            line-height: 22px;
+            height: 22px;
+            background: url(../img/sprite3.png) no-repeat right -303px;
+            padding: 4px 22px 0 9px; }
+          body #hd #tools .tools .city:hover,
+          html #hd #tools .tools .city:hover {
+            border: 1px solid #e6e6e6;
+            border-bottom: none; }
+          body #hd #tools .tools .city:hover a,
+          html #hd #tools .tools .city:hover a {
+            background-position: right -320px; }
+          body #hd #tools .tools .city ul,
+          html #hd #tools .tools .city ul {
+            position: absolute;
+            top: 27px;
+            left: 0px;
+            border: 1px solid #e6e6e6;
+            border-top: none;
+            background-color: #fff;
+            padding: 10px 0 10px 10px;
+            width: 298px;
+            display: none; }
+            body #hd #tools .tools .city ul li,
+            html #hd #tools .tools .city ul li {
+              background: none;
+              float: left;
+              width: 48px;
+              height: 26px;
+              line-height: 26px;
+              padding: 0 0 0 10px;
+              position: relative;
+              z-index: 100;
+              border: 0; }
+              body #hd #tools .tools .city ul li a,
+              html #hd #tools .tools .city ul li a {
+                background: none;
+                line-height: 26px;
+                height: 26px;
+                padding: unset; }
+    body #hd #logo,
+    html #hd #logo {
+      width: 100%; }
+      body #hd #logo .logo_line,
+      html #hd #logo .logo_line {
+        height: 100px;
+        width: 1200px;
+        margin: 0 auto;
+        position: relative; }
+        body #hd #logo .logo_line .logo,
+        html #hd #logo .logo_line .logo {
+          overflow: hidden;
+          width: 362px;
+          height: 100px;
+          vertical-align: middle;
+          position: absolute;
+          left: 0;
+          top: 0; }
+        body #hd #logo .logo_line .serach,
+        html #hd #logo .logo_line .serach {
+          position: absolute;
+          margin-top: 20px;
+          height: 48px;
+          z-index: 9999;
+          left: 362px;
+          top: 0; }
+          body #hd #logo .logo_line .serach form,
+          html #hd #logo .logo_line .serach form {
+            display: block;
+            height: 50px; }
+            body #hd #logo .logo_line .serach form label,
+            html #hd #logo .logo_line .serach form label {
+              position: absolute;
+              top: 2px;
+              left: 10px;
+              width: 398px;
+              height: 36px;
+              line-height: 36px;
+              z-index: 1;
+              overflow: hidden; }
+            body #hd #logo .logo_line .serach form #txt,
+            html #hd #logo .logo_line .serach form #txt {
+              width: 398px;
+              height: 18px;
+              border: 2px solid #ff2832;
+              border-right: none;
+              padding: 9px 0 9px 10px;
+              position: absolute;
+              left: 0;
+              top: 0;
+              z-index: 2;
+              color: #323232;
+              font: 12px/18px 'Hiragino Sans GB', "simsun", Arial;
+              outline: 0;
+              background: none; }
+            body #hd #logo .logo_line .serach form .select,
+            html #hd #logo .logo_line .serach form .select {
+              position: absolute;
+              top: 0px;
+              left: 410px;
+              border: 2px solid #ff2832;
+              border-left: 0px solid #dedede;
+              width: 92px;
+              height: 36px;
+              font: 16px/36px "Microsoft Yahei";
+              color: #969696;
+              padding: 0 0 0 14px;
+              cursor: pointer;
+              background-color: #f6f6f6; }
+              body #hd #logo .logo_line .serach form .select .icon,
+              html #hd #logo .logo_line .serach form .select .icon {
+                width: 13px;
+                height: 7px;
+                overflow: hidden;
+                background: url(../img/sprite3.png) no-repeat -14px -90px;
+                position: absolute;
+                left: 88px;
+                top: 16px; }
+              body #hd #logo .logo_line .serach form .select .all,
+              html #hd #logo .logo_line .serach form .select .all {
+                color: #969696;
+                font-size: 16px; }
+              body #hd #logo .logo_line .serach form .select .serach-all,
+              html #hd #logo .logo_line .serach form .select .serach-all {
+                display: none;
+                width: 104px;
+                height: 288px;
+                border: 1px solid #dedede;
+                position: absolute;
+                top: 36px;
+                left: 0px;
+                background-color: #fff;
+                overflow: auto; }
+                body #hd #logo .logo_line .serach form .select .serach-all a,
+                html #hd #logo .logo_line .serach form .select .serach-all a {
+                  display: block;
+                  height: 24px;
+                  padding: 0 5px 0 15px;
+                  text-decoration: none;
+                  font: 12px/24px 'Hiragino Sans GB', "simsun"; }
+                  body #hd #logo .logo_line .serach form .select .serach-all a span,
+                  html #hd #logo .logo_line .serach form .select .serach-all a span {
+                    color: #646464; }
+                  body #hd #logo .logo_line .serach form .select .serach-all a:hover,
+                  html #hd #logo .logo_line .serach form .select .serach-all a:hover {
+                    text-decoration: underline;
+                    background-color: #c8c8c8;
+                    color: #fff !important; }
+                  body #hd #logo .logo_line .serach form .select .serach-all a:hover span,
+                  html #hd #logo .logo_line .serach form .select .serach-all a:hover span {
+                    color: #fff; }
+                body #hd #logo .logo_line .serach form .select .serach-all .hover,
+                html #hd #logo .logo_line .serach form .select .serach-all .hover {
+                  color: #fff;
+                  text-decoration: underline;
+                  background-color: #c8c8c8; }
+                body #hd #logo .logo_line .serach form .select .serach-all .hover span,
+                html #hd #logo .logo_line .serach form .select .serach-all .hover span {
+                  color: #fff; }
+              body #hd #logo .logo_line .serach form .select:hover .serach-all,
+              html #hd #logo .logo_line .serach form .select:hover .serach-all {
+                display: block; }
+            body #hd #logo .logo_line .serach form .button,
+            html #hd #logo .logo_line .serach form .button {
+              width: 48px;
+              height: 40px;
+              border: none;
+              background: url(../img/sprite3.png) no-repeat 0 -346px;
+              cursor: pointer;
+              position: absolute;
+              left: 517px;
+              top: 0; }
+          body #hd #logo .logo_line .serach .serach_bottom,
+          html #hd #logo .logo_line .serach .serach_bottom {
+            position: absolute;
+            top: 50px;
+            color: #969696;
+            width: 585px;
+            line-height: 20px;
+            z-index: 6666; }
+            body #hd #logo .logo_line .serach .serach_bottom a,
+            html #hd #logo .logo_line .serach .serach_bottom a {
+              color: #969696;
+              margin-right: 15px;
+              _display: inline;
+              height: 20px;
+              overflow: hidden; }
+              body #hd #logo .logo_line .serach .serach_bottom a:hover,
+              html #hd #logo .logo_line .serach .serach_bottom a:hover {
+                color: red;
+                text-decoration: underline; }
+            body #hd #logo .logo_line .serach .serach_bottom .serach_hot,
+            html #hd #logo .logo_line .serach .serach_bottom .serach_hot {
+              float: left;
+              width: 518px;
+              overflow: hidden;
+              height: 20px; }
+              body #hd #logo .logo_line .serach .serach_bottom .serach_hot a,
+              html #hd #logo .logo_line .serach .serach_bottom .serach_hot a {
+                color: #969696;
+                margin-right: 15px;
+                display: inline;
+                height: 20px;
+                overflow: hidden; }
+                body #hd #logo .logo_line .serach .serach_bottom .serach_hot a:hover,
+                html #hd #logo .logo_line .serach .serach_bottom .serach_hot a:hover {
+                  color: #ff2832;
+                  text-decoration: underline; }
