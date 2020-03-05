@@ -431,3 +431,239 @@ html {
                 html #hd #logo .logo_line .serach .serach_bottom .serach_hot a:hover {
                   color: #ff2832;
                   text-decoration: underline; }
+        body #hd #logo .logo_line .dd_card,
+        html #hd #logo .logo_line .dd_card {
+          position: absolute;
+          right: 88px;
+          width: 107px;
+          border-color: #ff2832;
+          background: url(../img/sprite4.png) 5px 0 no-repeat #ff2832;
+          height: 36px;
+          top: 22px;
+          line-height: 36px;
+          border: 2px solid #dcdcdc; }
+          body #hd #logo .logo_line .dd_card a,
+          html #hd #logo .logo_line .dd_card a {
+            padding-left: 35px;
+            color: #fff; }
+          body #hd #logo .logo_line .dd_card b,
+          html #hd #logo .logo_line .dd_card b {
+            padding-left: 3px;
+            font-family: Arial;
+            font-weight: bold;
+            color: #fff; }
+        body #hd #logo .logo_line .dd_order,
+        html #hd #logo .logo_line .dd_order {
+          position: absolute;
+          width: 86px;
+          padding: 0;
+          text-align: center;
+          right: 0;
+          border-left: 0;
+          background-color: #f6f6f6;
+          height: 35px;
+          top: 22px;
+          line-height: 36px;
+          border: 2px solid #dcdcdc;
+          font: 14px/36px "Microsoft Yahei"; }
+    body #hd .nav_top,
+    html #hd .nav_top {
+      width: 100%;
+      height: 40px;
+      border-bottom: 3px solid #ff2832; }
+      body #hd .nav_top ul,
+      html #hd .nav_top ul {
+        width: 1200px;
+        margin: 0 auto; }
+        body #hd .nav_top ul li,
+        html #hd .nav_top ul li {
+          float: left;
+          text-align: center;
+          position: relative; }
+          body #hd .nav_top ul li a,
+          html #hd .nav_top ul li a {
+            color: #323232;
+            font: 14px/40px "Microsoft Yahei";
+            text-decoration: none;
+            padding: 0 15px;
+            display: block;
+            font-weight: bold; }
+        body #hd .nav_top ul .allPro,
+        html #hd .nav_top ul .allPro {
+          width: 200px;
+          margin-right: 17px;
+          display: inline;
+          text-align: left;
+          background: #ff2832;
+          position: relative; }
+          body #hd .nav_top ul .allPro a,
+          html #hd .nav_top ul .allPro a {
+            padding: 0 0 0 20px;
+            display: block;
+            width: 171px;
+            background: url(../img/sprite3.png) no-repeat 161px -567px;
+            color: #fff; }
+  body #bd,
+  html #bd {
+    position: relative; }
+    body #bd .bd_bg,
+    html #bd .bd_bg {
+      height: 488px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-left: -5px; }
+    body #bd .bd_body,
+    html #bd .bd_body {
+      width: 1200px;
+      margin: 0 auto;
+      background-color: #fff; }
+      body #bd .bd_body .new_pro,
+      html #bd .bd_body .new_pro {
+        padding-bottom: 20px;
+        height: 508px;
+        width: 1200px;
+        margin: 0 auto; }
+        body #bd .bd_body .new_pro .first_screen,
+        html #bd .bd_body .new_pro .first_screen {
+          height: 508px; }
+          body #bd .bd_body .new_pro .first_screen .nav_left,
+          html #bd .bd_body .new_pro .first_screen .nav_left {
+            float: left;
+            width: 200px;
+            background-color: #fafafa;
+            position: relative;
+            z-index: 40;
+            padding: 4px 0;
+            height: 480px; }
+            body #bd .bd_body .new_pro .first_screen .nav_left ul,
+            html #bd .bd_body .new_pro .first_screen .nav_left ul {
+              width: 200px; }
+              body #bd .bd_body .new_pro .first_screen .nav_left ul li,
+              html #bd .bd_body .new_pro .first_screen .nav_left ul li {
+                height: 30px;
+                padding-left: 18px;
+                color: #323232;
+                font: 14px/30px "Microsoft Yahei";
+                position: relative;
+                z-index: 1px;
+                vertical-align: top; }
+                body #bd .bd_body .new_pro .first_screen .nav_left ul li span a,
+                html #bd .bd_body .new_pro .first_screen .nav_left ul li span a {
+                  color: #323232;
+                  font: 14px/32px "Microsoft Yahei"; }
+                  body #bd .bd_body .new_pro .first_screen .nav_left ul li span a:hover,
+                  html #bd .bd_body .new_pro .first_screen .nav_left ul li span a:hover {
+                    color: red;
+                    text-decoration: underline; }
+            body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop,
+            html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop {
+              position: absolute;
+              left: 199px;
+              top: 0px;
+              border: 2px solid #ff2832;
+              width: 979px;
+              padding-left: 18px;
+              overflow: hidden;
+              overflow: hidden;
+              font: 12px 'Hiragino Sans GB',"Simsun";
+              background-color: #fff;
+              border-top: none 0;
+              min-height: 484px;
+              display: none; }
+              body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box,
+              html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box {
+                width: 979px; }
+                body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .new_pub,
+                html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .new_pub {
+                  position: relative;
+                  overflow: hidden;
+                  background: #fff;
+                  margin-bottom: -1px;
+                  z-index: 999;
+                  width: 979px;
+                  padding-top: 10px; }
+                  body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .new_pub a,
+                  html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .new_pub a {
+                    float: left;
+                    height: 20px;
+                    line-height: 20px !important;
+                    padding: 0 28px 0 8px;
+                    color: #fff;
+                    text-decoration: none;
+                    display: inline;
+                    margin: 0 10px 3px 0;
+                    background: #a2a2a2 url(../img/sprite5.png) no-repeat right -146px; }
+                    body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .new_pub a:hover,
+                    html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .new_pub a:hover {
+                      background-color: #ff2832;
+                      background-position: right -166px; }
+                body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left,
+                html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left {
+                  width: 890px; }
+                  body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left li,
+                  html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left li {
+                    width: 890px;
+                    padding: 5px 0 0px 0;
+                    margin-left: 70px;
+                    position: relative;
+                    border-top: 1px dotted #d5d5d5;
+                    zoom: 1; }
+                    body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left li h4,
+                    html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left li h4 {
+                      position: absolute;
+                      left: -70px;
+                      top: 7px;
+                      color: #ff2832;
+                      font-size: 12px;
+                      font-weight: bold;
+                      font-family: "Microsoft Yahei";
+                      line-height: 22px;
+                      height: 22px; }
+                body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left01 li,
+                html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left01 li {
+                  padding: 5px 0 0px 0; }
+                body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left01 .ph,
+                html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left01 .ph {
+                  line-height: 22px;
+                  width: 879px;
+                  padding-left: 10px;
+                  overflow: hidden; }
+                  body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left01 .ph a,
+                  html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left01 .ph a {
+                    font-family: 'Hiragino Sans GB',"Simsun";
+                    color: #686868;
+                    display: inline-block;
+                    padding-right: 25px; }
+                    body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left01 .ph a:hover,
+                    html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left01 .ph a:hover {
+                      color: red;
+                      text-decoration: underline; }
+                body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left02 li,
+                html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left02 li {
+                  padding: 5px 0 0px 0; }
+                  body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left02 li:first-child,
+                  html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left02 li:first-child {
+                    padding-bottom: 15px; }
+                body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left02 div,
+                html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left02 div {
+                  line-height: 22px;
+                  width: 648px;
+                  margin-left: 1px;
+                  overflow: hidden;
+                  width: 897px; }
+                  body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left02 div:hover,
+                  html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left02 div:hover {
+                    background-color: #eee; }
+                  body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left02 div a,
+                  html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left02 div a {
+                    color: #646464;
+                    padding: 0 10px;
+                    background: url(../img/sprite5.png) no-repeat left -30px;
+                    display: inline-block;
+                    margin-left: -1px; }
+                    body #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left02 div a:hover,
+                    html #bd .bd_body .new_pro .first_screen .nav_left .nav_pop .left-box .left02 div a:hover {
+                      color: red;
+                      text-decoration: underline; }
