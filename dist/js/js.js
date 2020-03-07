@@ -12,8 +12,20 @@ $(function () {
     var $red_dot=$("#bd>.bd_body>.new_pro>.first_screen>.home_notice>.home_notice_gg>.banner_gg>ul>li");
     var $over=$("#bd>.bd_body>.new_pro>.first_screen>.home_notice>.home_notice_gg>.banner_gg>.over>ul");
     var $over_li=$("#bd>.bd_body>.new_pro>.first_screen>.home_notice>.home_notice_gg>.banner_gg>.over>ul>li");
+    var $fire_week_li=$("#bd>.bd_body>.taday_flash_box>.con>.fire_week>.head>ul>li");
+    var $tab_c_div=$("#bd>.bd_body>.taday_flash_box>.con>.fire_week>.tab_c>div");
+    var $tab_c_li=$("#bd>.bd_body>.taday_flash_box>.con>.fire_week>.tab_c>div>ul>li");
+    var $book_new_head=$("#bd>.bd_body>.book_new>.tab_box>.head>ul>li");
+    var $book_new_content=$("#bd>.bd_body>.book_new>.tab_box>.tab_content>.content");
+    var $foot_tab_head=$("#bd>.bd_body>.book_new>.foot_tab>.foot_tab_head>ul>li");
+    var $foot_tab_content=$("#bd>.bd_body>.book_new>.foot_tab>.foot_tab_content>.content");
+    var $floor_head_li=$("#bd>.bd_body>.floor_tall>.home_screen>.floor_tab>.floor_head_tab>ul>li");
+    var $floor_content_tab=$("#bd>.bd_body>.floor_tall>.home_screen>.floor_tab>.floor_content_tab");
 
-    // console.log($red_dot);
+
+
+
+    // console.log($floor_content_tab);
 
 
     // 鼠标移入显示nav列表
@@ -106,7 +118,7 @@ $(function () {
             c=1;
             $over.css({"left":0});
         }
-        
+         
         if(f){
             $over.stop().animate({"left":-(c*202)});
             $red_dot.eq(cc).addClass("red_dot").siblings().removeClass("red_dot");
@@ -122,9 +134,48 @@ $(function () {
         });
         f=true;
     });
-   
+//    厂商周轮播
+    var $fire_week_li_count=0;
+    setInterval(function () {
+        $fire_week_li_count++;
+        if ($fire_week_li_count == $fire_week_li.length) {
+            $fire_week_li_count=0;
+        }
+       $fire_week_li.eq($fire_week_li_count).addClass("on").siblings().removeClass("on");
+       $tab_c_div.eq($fire_week_li_count).fadeIn().siblings().fadeOut();
+    }, 3000);
+    // 鼠标移入厂商周区,图片发生变化.
+    $tab_c_li.each(function(i){
+        $tab_c_li.eq(i).mouseenter(function(){
+            $tab_c_li.eq(i).stop().animate({"right":"10px"});
+        }).mouseleave(function(){
+            $tab_c_li.eq(i).stop().animate({"right":"0px"});
+        })
+    });
 
-    
+
+// 鼠标移入网络文学区域切换列表
+    $book_new_head.each(function(i){
+        $book_new_head.eq(i).mouseenter(function(){
+            $book_new_head.eq(i).addClass("on").siblings().removeClass("on");
+            $book_new_content.eq(i).addClass("tab").siblings().removeClass("tab")
+        })
+    });
+// 鼠标移入图书畅销榜区域切换列表
+    $foot_tab_head.each(function(i){
+        $foot_tab_head.eq(i).mouseenter(function(){
+            $foot_tab_head.eq(i).addClass("on").siblings().removeClass("on");
+            $foot_tab_content.eq(i).fadeIn().siblings().fadeOut();  
+        })
+    });
+
+    $floor_head_li.each(function(i){
+        $floor_head_li.eq(i).mouseenter(function(){
+            $floor_head_li.eq(i).addClass("on").siblings().removeClass("on");
+            $floor_content_tab.eq(i).addClass("tab").siblings().removeClass("tab");
+           
+        })
+    })
 })
 
 
