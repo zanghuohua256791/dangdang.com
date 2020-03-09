@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reg.css">
+</head>
+
+<body>
+    <div class="head">
+        <div class="head_content">
+            <div class="logo">
+                <a href="#"><img src="img/reg_logo.gif" alt=""></a>
+            </div>
+        </div>
+        <div class="head_bottom"></div>
+    </div>
+    <div id="bd">
+        <div class="shadow_box">
+            <div class="reg_box">
+                <div class="head">
+                    <a href="#">新用户注册</a>
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="tip">
+                贴心提示：请勿设置与邮箱密码相同的账户登录密码或支付密码，防止不法分子窃取您的当当账户信息，
+                <a href="#">谨防诈骗</a>
+            </div>
+            <table>
+                <tr>
+                    <td class="t">手机号码</td>
+                    <td class="z_index2">
+                        <input type="text" placeholder="请输入您的手机号码" class="text">
+                        <span class="username"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t">登陆密码</td>
+                    <td class="z_index2">
+                        <input type="password" class="text pwd">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t">确认密码</td>
+                    <td class="z_index2">
+                        <input type="password" class="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t">验证码</td>
+                    <td class="z_index2">
+                        <input type="text" class="text code" placeholder="请输入验证码" style="display: inline-block;">
+                        <span class="code_input"></span>
+                        <span class="yes"></span>
+                        <span class="wrong"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t">&nbsp;</td>
+                    <td class="calaus">
+                        <span class="float-l">
+                            <input type="checkbox" checked="true">
+                            我已阅读并同意
+                            <a href="#">《当当交易条款》</a>
+                            <a href="#">《当当社区条款》</a>
+                            和
+                            <a href="#">《当当隐私政策》</a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="t">&nbsp;</td>
+                   <td>
+                       <a href="#" class="btn_login">立即注册</a>
+                       <a href="#" class="btn_login" style="display: none;"></a>
+                   </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="libs/jquery-1.11.0.js"></script>
+    <script src="js/code.js"></script>
+    <script>
+        $(function () {
+            var $username = $("#bd>.body>table>tbody>tr>.z_index2>.text").eq(0);
+           
+            var $username_span = $("#bd>.body>table>tbody>tr>.z_index2>.username");
+            
+            var $login=$("#bd>.body>table>tbody>tr>td>.btn_login");
+          
+            var $pwd=$("#bd>.body>table>tbody>tr>.z_index2>.pwd");
+            // console.log($pwd);
+            // console.log($pwd);
+
+            $username.keyup(function(){
+                $.get("http://jx.xuzhixiang.top/ap/api/checkname.php",{
+                    username:$username.val()
+                },data=>{
+                    console.log(data);
+                    if(data.code==0){
+                        $username_span.html(data.msg);
+
+                    }else{
+                        $username_span.html(data.msg);
+                        $login.click(function(){
+                            $.get("http://jx.xuzhixiang.top/ap/api/reg.php",{
+                                username:$username.val(),
+                                password:$pwd.val()
+                            },data=>{
+                                if(data.code==1){
+                                    alert("注册成功");
+                                    location.href="index.html"
+                                }
+                            })
+                        })
+                       
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
