@@ -36,6 +36,7 @@
             $.get("http://jx.xuzhixiang.top/ap/api/productlist.php", {
                 uid: "22771"
             }).then(data => {
+                console.log(data)
                 fn(data);
             });
             var ul = document.querySelector(".prolist");
@@ -52,7 +53,7 @@
                                         <span class="price_n">¥${Data[i].pprice}</span>
                                     </p>
                                     <p class="name">
-                                        <a href="#">${Data[i].pname}</a>
+                                        <a href="detail.html?${Data[i].pid}">${Data[i].pname}</a>
                                     </p>
                                     <p class="desc">${Data[i].pdesc}</p>
                                     <p class="buttom">

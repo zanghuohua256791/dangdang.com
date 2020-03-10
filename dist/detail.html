@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>详情页-当当</title>
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+
+<body>
+    <div id="hd">
+        <div class="tools"></div>
+        <div class="logo">
+            <div class="logo_line">
+                <div>
+                    <a href="index.html">
+                        <img src="img/logo.gif" alt="">
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product_wrapper">
+        <a href="#">
+            <img src="img/zmd.jpg" alt="">
+        </a>
+    </div>
+    <div class="body">
+        <!-- <div class="pic_info">
+            <div class="pic">
+                <img src="img/yebd.jpg" alt="">
+            </div>
+        </div>
+        <div class="show_info">
+            <div class="dese_info">
+                <h1>
+                    这是一件物美价廉的商品
+                </h1>
+            </div>
+            <div class="name_info">
+                <h2>婴儿背带</h2>
+            </div>
+            <div class="price_info">
+                <span>$319.00</span>
+            </div>
+            <div class="buy_box">
+                <div class="num">
+                    <input type="text" value="1" class="buy_num">
+                    <a href="javaScript:;" class="num_add"></a>
+                    <a href="javaScript:;" class="num_del"></a>
+                </div>
+                <div class="buy_box_btn">
+                    <a href="#" class="btn">
+                        <i class="cart"></i>
+                        加入购物车
+                    </a>
+                    <a href="#" class="btn_b">立即购买</a>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</body>
+<script src="libs/jquery-1.11.0.js"></script>
+<script>
+    $(function () {
+        // 获取?后面跟随的id
+        var url = window.document.location.href.toString(); // 获取当前连接
+        var info = url.split("?"); // 从"?"处切割得到数组 => [http://网址/，ABC]
+        var j = info[1].split("=");
+        var newInfo = j[j.length - 1];
+        // console.log(newInfo)
+        var $body = $(".body");
+
+        // 据商品id获取商品详情接口
+        $.get("http://jx.xuzhixiang.top/ap/api/detail.php?id=1", {
+            id: newInfo
+        }).then(data => {
+            console.log(data);
+            // console.log(data.data.img)
+            fn(data);
+        });
+        function fn(data) {
+            var str = "";
+            var Data = data.data;
+            // console.log(Data.pimg);
+            str = `      
+            <div class="pic_info">
+            <div class="pic">
+                <img src="${Data.pimg}" alt="">
+            </div>
+        </div>
+        <div class="show_info">
+            <div class="dese_info">
+                <h1>
+                  ${Data.pdesc}
+                </h1>
+            </div>
+            <div class="name_info">
+                <h2>${Data.pname}</h2>
+            </div>
+            <div class="price_info">
+                <span>￥${Data.pprice}</span>
+            </div>
+            <div class="buy_box">
+                <div class="num">
+                    <input type="text" value="1" class="buy_num">
+                    <a href="javaScript:;" class="num_add"></a>
+                    <a href="javaScript:;" class="num_del"></a>
+                </div>
+                <div class="buy_box_btn">
+                    <a href="#" class="btn">
+                        <i class="cart"></i>
+                        加入购物车
+                    </a>
+                    <a href="#" class="btn_b">立即购买</a>
+                </div>
+            </div>
+        </div>`
+            $body.append(str);
+            $add_btn = $(".body>.show_info>.buy_box>.num>.num_add");
+    $del_btn = $(".body>.show_info>.buy_box>.num>.num_del");
+    $buy_num = $(".body>.show_info>.buy_box>.num>.buy_num");
+    // console.log($del_btn)
+    // 购物车的加减功能
+    var i;
+    if (i = 1) {
+        $del_btn.css({ " pointer-events": "none", "background-color": "#ccc" })
+    }
+    $add_btn.click(function () {
+        ++i;
+        $buy_num.val(i);
+        $del_btn.css({ " pointer-events": "auto", "background-color": "#000" })
+    });
+    $del_btn.click(function () {
+        if (i > 1) {
+            --i;
+            $buy_num.val(i);
+        } else if (i = 1) {
+            $del_btn.css({ " pointer-events": "none", "background-color": "#ccc" })
+        }
+    });
+        }
+
+  
+    })
+</script>
+<!-- <script src="js/buy_num.js"></script> -->
+</html>
