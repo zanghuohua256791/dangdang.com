@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/prolist.css">
+</head>
+
+<body>
+    <div id="bd">
+        <ul class="prolist">
+            <!-- <li>
+                <a href="#"><img src="img/yebd.jpg" alt=""></a>
+                <p class="price">
+                    <span class="price_n">¥319.00</span>
+                </p>
+                <p class="name">
+                    <a href="#">婴儿背带</a>
+                </p>
+                <p class="desc">这是一件物美价廉的商品</p>
+                <p class="buttom">
+                    <a href="#">
+                        <span class="icon"></span>
+                        加入购物车
+                    </a>
+                </p>
+            </li> -->
+        </ul>
+
+    </div>
+    <script src="libs/jquery-1.11.0.js"></script>
+    <script>
+        $(function () {
+            $.get("http://jx.xuzhixiang.top/ap/api/productlist.php", {
+                uid: "22771"
+            }).then(data => {
+                fn(data);
+            });
+            var ul = document.querySelector(".prolist");
+            var str = "";
+            function fn(data) {
+               
+                Data = data.data;
+                for (i in Data) {
+                    console.log(Data[i]);
+                    str += ` 
+                                    <li>
+                                    <a href="#"><img src="${Data[i].pimg}" alt=""></a>
+                                    <p class="price">
+                                        <span class="price_n">¥${Data[i].pprice}</span>
+                                    </p>
+                                    <p class="name">
+                                        <a href="#">${Data[i].pname}</a>
+                                    </p>
+                                    <p class="desc">${Data[i].pdesc}</p>
+                                    <p class="buttom">
+                                        <a href="#">
+                                            <span class="icon"></span>
+                                            加入购物车
+                                        </a>
+                                    </p>
+                                </li>
+            `;
+                }
+                // console.log(str);
+                $(".prolist").append(str);
+            }
+        })
+    </script>
+</body>
+
+</html>
