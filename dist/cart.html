@@ -1,11 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>详情页-当当</title>
+    <title>购物车-当当</title>
+    <link rel="stylesheet" href="css/cart.css">
 </head>
+
 <body>
-    <div id="hd"></div>
+    <div class="logo">
+        <div class="w960">
+            <div class="shopping">
+                <span class="current">我的购物车</span>
+                <span>填写订单</span>
+                <span>完成订单</span>
+            </div>
+            <div class="Logo">
+                <a href="index.html">
+                    <img src="img/logo-4.jpg" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="cart">
+        <ul class="shopping_title">
+            <li class="f1">
+                <a href="javaScript:;" class="checknow">全选</a>
+            </li>
+            <li class="f2">商品信息</li>
+            <li class="f3">单价(元)</li>
+            <li class="f4">数量</li>
+            <li class="f4">金额(元)</li>
+            <li class="f5">操作</li>
+
+        </ul>
+        <div class="shops-list">
+            <table style="width: 100%;">
+                <!-- <tr>
+                    <td class="row1">
+                        <a href="javaScript:;" class="checknow"></a>
+                    </td>
+                    <td class="row-img">
+                        <a href="#">
+                            <img src="img/yebd.jpg" alt="">
+                        </a>
+                    </td>
+                    <td class="row_name">
+                        <div class="desc"><a href="#">这是一件物美价廉的商品</a></div>
+                        <div class="name"><a href="#">婴儿背带</a></div>
+                    </td>
+                    <td class="row_price">
+                        <span>$139.00</span>
+                    </td>
+                    <td class="row_num">
+                        <span>
+                            <a href="javaScript:;" class="minu">-</a>
+                            <input type="text" class="num" value="1">
+                            <a href="javaScript" class="add">+</a>
+                        </span>
+                    </td>
+                    <td class="row_aprice">
+                        <span>$139.00</span>
+                    </td>
+                    <td class="row_del">
+                        <span><a href="javaScrpit:;">删除</a></span>
+                    </td>
+                </tr> -->
+
+
+            </table>
+        </div>
+    </div>
+    <div class="flex">
+        <div class="close">
+            <div class="shopping_close">
+                <a href="javaScript:;">结&nbsp;算</a>
+                <p>
+                    <span class="cartsum">总计(不含运费):</span>
+                    <span class="payAmount
+                    ">$152.96</span>
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="libs/jquery-1.11.0.js"></script>
+<script>
+    $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", {
+        id: "22771"
+    }).then(data => {
+        console.log(data);
+        fn(data);
+    })
+    function fn(data) {
+        var Data = data.data;
+        // console.log(data.data)
+        var str = "";
+        for (i in Data) {
+            var price = (Data[i].pnum) * (Data[i].pprice);
+
+            str += `
+            <tr>
+                    <td class="row1">
+                        <a href="javaScript:;" class="checknow"></a>
+                    </td>
+                    <td class="row-img">
+                        <a href="#">
+                            <img src="${Data[i].pimg}" alt="">
+                        </a>
+                    </td>
+                    <td class="row_name" data-id="${Data[i].pid}">
+                        <div class="desc"><a href="#">${Data[i].pdesc}</a></div>
+                        <div class="name"><a href="#">${Data[i].pname}</a></div>
+                    </td>
+                    <td class="row_price">
+                        <span>￥${Data[i].pprice}</span>
+                    </td>
+                    <td class="row_num">
+                        <span>
+                            <a href="javaScript:;" class="minu">-</a>
+                            <input type="text" class="num" value="${Data[i].pnum}">
+                            <a href="javaScript:;" class="add">+</a>
+                        </span>
+                    </td>
+                    <td class="row_aprice">
+                        <span>￥${price}</span>
+                    </td>
+                    <td class="row_del">
+                        <span><a href="#">删除</a></span>
+                    </td>
+                </tr>
+            `
+        }
+
+
+
+
+
+        // 插入数据
+        var $table = $("#cart>.shops-list>table");
+        $table.append(str);
+        var checkAll = $("#cart>ul>.f1>a");
+        var $checkLi = $("#cart>.shops-list>table>tr>.row1");
+
+        
+
+        // 全选功能
+        var Count = 0;
+        
+        checkAll.click(function () {
+            Count++;
+            if (Count % 2 != 0) {
+                checkAll.addClass("on");
+                $checkLi.find("a").removeClass("on").addClass("on");
+                close();
+            } else {
+                checkAll.removeClass("on");
+                $checkLi.find("a").removeClass("on");
+                close();
+            }
+
+        })
+
+
+        // 单选功能
+        var $cheked = $("#cart>.shops-list>table>tr>.row1>a");
+        var ckLength = 0;
+        // console.log($cheked)
+        $cheked.each(function (i) {
+            var count = 0;
+            $cheked.eq(i).click(function () {
+                count++;
+                if (count % 2 != 0) {
+                    $cheked.eq(i).addClass("on");
+                    close();
+                    ++ckLength;
+                    // console.log(ckLength)
+                } else {
+                    $cheked.eq(i).removeClass("on");
+                    close();
+                    ckLength--;
+                }
+                // 如果有一个没选择全选按钮就不打勾
+                if (ckLength == $cheked.length) {
+                    checkAll.addClass("on");
+                    close();
+                } else {
+                    checkAll.removeClass("on");
+                    close();
+             }
+            })
+        })
+
+
+
+        // 获取pid
+        var $url = $("#cart>.shops-list>table>tr>.row_name");
+        var $pid = [];
+        $url.each(function (i) {
+            // console.log($url.eq(i).attr("data-id"))
+            $pid.push($url.eq(i).attr("data-id"));
+        })
+        // console.log($pid);
+
+        // 获取删除按钮
+        var $del = $("#cart>.shops-list>table>tr>.row_del>span>a");
+        var $tr = $("#cart>.shops-list>table>tr");
+        
+        // 删除功能
+        $del.each(function (i) {
+            $del.eq(i).click(function () {
+                // close();
+                $del = $("#cart>.shops-list>table>tr>.row_del>span>a")
+                console.log($del);
+                $.get("http://jx.xuzhixiang.top/ap/api/cart-delete.php", {
+                    uid: "22771",
+                    pid: $pid[i]
+                }).then(data => {
+                    console.log(data);
+                });
+                // close();
+                $tr.eq(i).remove();
+                $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php",{
+                    id:"22771"
+                }).then(data=>{
+                    console.log(data);
+                })
+                close();
+            })
+            
+        });
+
+
+
+
+        var $minu = $("#cart>.shops-list>table>tr>.row_num>span>.minu");
+        var $input = $("#cart>.shops-list>table>tr>.row_num>span>.num");
+        var $add = $("#cart>.shops-list>table>tr>.row_num>span>.add");
+
+
+
+
+        var count;
+        // 加数量
+        $add.each(function (i) {
+            var index = $input.eq(i).val();
+            $add.eq(i).click(function () {
+                $count = $input.eq(i).val();
+                $count++;
+                $input.eq(i).val($count);
+                proNum();
+                close();
+                $.get("http://jx.xuzhixiang.top/ap/api/cart-update-num.php", {
+                    uid: "22771",
+                    pid: $pid[i],
+                    pnum: index + 1
+                }).then(data => {
+                    // console.log(data);
+                });
+                ++index;
+            });
+            // 减数量
+            $minu.eq(i).click(function () {
+                $count = $input.eq(i).val();
+                if ($count == 1) {
+                    alert("商品数量不能小于一件,不需要请删除")
+                } else {
+                    parseInt(--$count);
+                    $input.eq(i).val($count);
+                    proNum();
+                    close();
+                    $.get("http://jx.xuzhixiang.top/ap/api/cart-update-num.php", {
+                        uid: "22771",
+                        pid: $pid[i],
+                        pnum: index - 1
+                    }).then(data => {
+                    })
+                    --index;
+                }
+            })
+            // input手动输入改变价格
+            $input.eq(i).keyup(function () {
+                // proNum();
+                $count = parseInt($input.eq(i).val());
+                // console.log(typeof($count));
+                if ($count >= 0) {
+                    proNum();
+                    close();
+                    $.get("http://jx.xuzhixiang.top/ap/api/cart-update-num.php", {
+                        uid: "22771",
+                        pid: $pid[i],
+                        pnum: $count
+                    }).then(data => {
+                        // console.log(data);
+                    });
+                } else {
+                    alert("无效数字请重新输入数量")
+                }
+            })
+        })
+
+
+        // 点击加和减总价发生变化
+        var $price = $("#cart>.shops-list>table>tr>.row_price>span");
+        var $aprice = $("#cart>.shops-list>table>tr>.row_aprice>span");
+        function proNum() {
+            // console.log($price);
+            $price.each(function (i) {
+                var total = (parseInt($price.eq(i).html().substr(1))) * (parseInt($input.eq(i).val()))
+                // console.log(total)
+                $aprice.eq(i).html("￥" + total)
+            })
+        }
+        
+      // 全部总价
+
+
+
+        function close(){
+            var num=0;
+            var $close=$(".flex>.close>.shopping_close>p>.payAmount");
+            var $on=$("#cart>.shops-list>table>tr>.row1>.on");
+                $on.each(function(i){
+                   num+=parseFloat($on.eq(i).parent().parent().find($aprice).text().substr(1));
+                })
+                $close.text("￥"+num);
+        }
+        close();
+  
+
+
+
+
+    }
+</script>
+
 </html>

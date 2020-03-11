@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>商品列表-当当</title>
     <link rel="stylesheet" href="css/prolist.css">
 </head>
 
@@ -36,19 +36,18 @@
             $.get("http://jx.xuzhixiang.top/ap/api/productlist.php", {
                 uid: "22771"
             }).then(data => {
-                console.log(data)
+                // console.log(data)
                 fn(data);
             });
             var ul = document.querySelector(".prolist");
             var str = "";
             function fn(data) {
-               
                 Data = data.data;
                 for (i in Data) {
-                    console.log(Data[i]);
+                    // console.log(Data[i]);
                     str += ` 
                                     <li>
-                                    <a href="#"><img src="${Data[i].pimg}" alt=""></a>
+                                    <a href="javaScript:;"><img src="${Data[i].pimg}" alt=""></a>
                                     <p class="price">
                                         <span class="price_n">¥${Data[i].pprice}</span>
                                     </p>
@@ -57,7 +56,7 @@
                                     </p>
                                     <p class="desc">${Data[i].pdesc}</p>
                                     <p class="buttom">
-                                        <a href="#">
+                                        <a href="javaScript:;">
                                             <span class="icon"></span>
                                             加入购物车
                                         </a>
@@ -65,9 +64,30 @@
                                 </li>
             `;
                 }
-                // console.log(str);
                 $(".prolist").append(str);
+                var $add_cart=$("#bd>.prolist>li>.buttom");
+                // console.log($add_cart)
+                $add_cart.each(function(i){
+                    var $url=$add_cart.eq(i).siblings(".name").find("a").attr("href");
+                    var info = $url.split("?"); // 从"?"处切割得到数组 => [http://网址/，ABC]
+                    var j = info[1].split("=");
+                    var newInfo = j[j.length - 1];
+                    
+                    $add_cart.eq(i).click(function(){
+                        var index=1;
+                        // console.log(newInfo);
+                        $.get("http://jx.xuzhixiang.top/ap/api/add-product.php",{
+                            uid:"22771",
+                            pid:newInfo,
+                            pnum:index
+                        }).then(data=>{
+                            console.log(data);
+                        })
+                        index++;
+                    })
+                })
             }
+           
         })
     </script>
 </body>
