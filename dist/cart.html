@@ -26,7 +26,7 @@
     <div id="cart">
         <ul class="shopping_title">
             <li class="f1">
-                <a href="javaScript:;" class="checknow">全选</a>
+                <a href="javaScript:;" class="checknow on">全选</a>
             </li>
             <li class="f2">商品信息</li>
             <li class="f3">单价(元)</li>
@@ -87,23 +87,25 @@
 </body>
 <script src="libs/jquery-1.11.0.js"></script>
 <script>
+    var url = window.document.location.href.toString(); // 获取当前连接
+            var info = url.split("?"); // 从"?"处切割得到数组 => [http://网址/，ABC]
+            var d=info[1].split("=");
+            var uid=d[d.length-1];//取到uid
     $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php", {
-        id: "22771"
+        id: uid
     }).then(data => {
         console.log(data);
         fn(data);
     })
     function fn(data) {
         var Data = data.data;
-        // console.log(data.data)
         var str = "";
         for (i in Data) {
             var price = (Data[i].pnum) * (Data[i].pprice);
-
             str += `
             <tr>
                     <td class="row1">
-                        <a href="javaScript:;" class="checknow"></a>
+                        <a href="javaScript:;" class="checknow on"></a>
                     </td>
                     <td class="row-img">
                         <a href="#">
@@ -111,8 +113,8 @@
                         </a>
                     </td>
                     <td class="row_name" data-id="${Data[i].pid}">
-                        <div class="desc"><a href="#">${Data[i].pdesc}</a></div>
-                        <div class="name"><a href="#">${Data[i].pname}</a></div>
+                        <div class="desc"><a href="detail.html?pid=${Data[i].pid}">${Data[i].pdesc}</a></div>
+                        <div class="name"><a href="detail.html?pid=${Data[i].pid}">${Data[i].pname}</a></div>
                     </td>
                     <td class="row_price">
                         <span>￥${Data[i].pprice}</span>
@@ -128,7 +130,7 @@
                         <span>￥${price}</span>
                     </td>
                     <td class="row_del">
-                        <span><a href="#">删除</a></span>
+                        <span><a href="javaScript:;">删除</a></span>
                     </td>
                 </tr>
             `
@@ -148,7 +150,6 @@
 
         // 全选功能
         var Count = 0;
-        
         checkAll.click(function () {
             Count++;
             if (Count % 2 != 0) {
@@ -160,14 +161,12 @@
                 $checkLi.find("a").removeClass("on");
                 close();
             }
-
         })
 
 
         // 单选功能
         var $cheked = $("#cart>.shops-list>table>tr>.row1>a");
         var ckLength = 0;
-        // console.log($cheked)
         $cheked.each(function (i) {
             var count = 0;
             $cheked.eq(i).click(function () {
@@ -176,7 +175,6 @@
                     $cheked.eq(i).addClass("on");
                     close();
                     ++ckLength;
-                    // console.log(ckLength)
                 } else {
                     $cheked.eq(i).removeClass("on");
                     close();
@@ -199,10 +197,9 @@
         var $url = $("#cart>.shops-list>table>tr>.row_name");
         var $pid = [];
         $url.each(function (i) {
-            // console.log($url.eq(i).attr("data-id"))
             $pid.push($url.eq(i).attr("data-id"));
         })
-        // console.log($pid);
+
 
         // 获取删除按钮
         var $del = $("#cart>.shops-list>table>tr>.row_del>span>a");
@@ -213,23 +210,20 @@
             $del.eq(i).click(function () {
                 // close();
                 $del = $("#cart>.shops-list>table>tr>.row_del>span>a")
-                console.log($del);
                 $.get("http://jx.xuzhixiang.top/ap/api/cart-delete.php", {
-                    uid: "22771",
+                    uid: uid,
                     pid: $pid[i]
                 }).then(data => {
                     console.log(data);
                 });
-                // close();
                 $tr.eq(i).remove();
                 $.get("http://jx.xuzhixiang.top/ap/api/cart-list.php",{
-                    id:"22771"
+                    id:uid
                 }).then(data=>{
                     console.log(data);
                 })
                 close();
             })
-            
         });
 
 
@@ -253,7 +247,7 @@
                 proNum();
                 close();
                 $.get("http://jx.xuzhixiang.top/ap/api/cart-update-num.php", {
-                    uid: "22771",
+                    uid: uid,
                     pid: $pid[i],
                     pnum: index + 1
                 }).then(data => {
@@ -272,7 +266,7 @@
                     proNum();
                     close();
                     $.get("http://jx.xuzhixiang.top/ap/api/cart-update-num.php", {
-                        uid: "22771",
+                        uid: uid,
                         pid: $pid[i],
                         pnum: index - 1
                     }).then(data => {
@@ -289,7 +283,7 @@
                     proNum();
                     close();
                     $.get("http://jx.xuzhixiang.top/ap/api/cart-update-num.php", {
-                        uid: "22771",
+                        uid: uid,
                         pid: $pid[i],
                         pnum: $count
                     }).then(data => {

@@ -1,7 +1,7 @@
 "use strict";
 
 $(function () {
-  var $li = $("#bd>.bd_body>.new_pro>.first_screen>.nav_left>ul>li");
+  var $li = $("#bd>.bd_body>.new_pro>.first_screen>.nav_left>ul");
   var $srot = $("#bd>.bd_body>.new_pro>.first_screen>.nav_left>.nav_pop");
   var $oli = $("#bd>.bd_body>.new_pro>.first_screen");
   var $solidimg = $("#bd>.bd_body>.new_pro>.first_screen>.home_circle>.focus_box>.slidecontentbox>ul>li");
@@ -28,22 +28,25 @@ $(function () {
   var $fix_list = $("#bd>.bd_body>.fix_box>ul>li"); // console.log($fix_box);
   // 鼠标移入显示nav列表
 
-  $li.each(function (i) {
-    $li.eq(i).mouseenter(function () {
-      $srot.eq(i).show();
-      $li.eq(i).css({
-        "border": "2px solid #ff2832",
-        "border-right": "#fff",
-        "z-index": "999"
-      });
-    });
-    $li.eq(i).mouseleave(function () {
-      // $srot.eq(i).hide();
-      $li.eq(i).css({
-        "border": "none"
-      });
-    });
-  }); // 鼠标出隐藏nav列表
+  // $li.each(function (i) {
+  //   $li.eq(i).mouseenter(function () {
+  //     $srot.eq(i).show();
+  //     $li.eq(i).css({
+  //       "border": "2px solid #ff2832",
+  //       "border-right": "#fff",
+  //       "z-index": "999"
+  //     });
+  //   });
+  //   $li.eq(i).mouseleave(function () {
+  //     // $srot.eq(i).hide();
+  //     $li.eq(i).css({
+  //       "border": "none"
+  //     });
+  //   });
+  // }); // 鼠标出隐藏nav列表
+  $li.mouseenter(function(){
+    $srot.show();
+  })
 
   $oli.mouseleave(function () {
     $srot.hide();

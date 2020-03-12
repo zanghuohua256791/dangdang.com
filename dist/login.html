@@ -59,8 +59,8 @@
             }).then(data=>{
                 if(data.code==1){
                     alert("登录成功");
-                    // console.log(data);
-                    location.href=`index.html?username=${$username.val()}`;
+                    // console.log(data.data.id);
+                    location.href=`index.html?username=${$username.val()}?uid=${data.data.id}`;
                     
                 }else{
                     alert("用户名或者密码错误，请重试！");

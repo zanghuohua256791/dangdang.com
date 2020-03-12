@@ -17,7 +17,7 @@
                     <a href="index.html">
                         <img src="img/logo.gif" alt="">
                     </a>
-                    
+
                 </div>
             </div>
         </div>
@@ -69,13 +69,14 @@
         var url = window.document.location.href.toString(); // 获取当前连接
         var info = url.split("?"); // 从"?"处切割得到数组 => [http://网址/，ABC]
         var j = info[1].split("=");
-        var newInfo = j[j.length - 1];
+        var pid = j[j.length - 1];
+        // console.log(newInfo);
         // console.log(newInfo)
         var $body = $(".body");
 
         // 据商品id获取商品详情接口
         $.get("http://jx.xuzhixiang.top/ap/api/detail.php?id=1", {
-            id: newInfo
+            id: pid
         }).then(data => {
             console.log(data);
             // console.log(data.data.img)
@@ -110,40 +111,55 @@
                     <a href="javaScript:;" class="num_del"></a>
                 </div>
                 <div class="buy_box_btn">
-                    <a href="#" class="btn">
+                    <a href="javaScript:;" class="btn">
                         <i class="cart"></i>
                         加入购物车
                     </a>
-                    <a href="#" class="btn_b">立即购买</a>
+                    <a href="cart.html?uid=${Data.uid}" class="btn_b">前往购物车</a>
                 </div>
             </div>
         </div>`
             $body.append(str);
-            $add_btn = $(".body>.show_info>.buy_box>.num>.num_add");
-    $del_btn = $(".body>.show_info>.buy_box>.num>.num_del");
-    $buy_num = $(".body>.show_info>.buy_box>.num>.buy_num");
-    // console.log($del_btn)
-    // 购物车的加减功能
-    var i;
-    if (i = 1) {
-        $del_btn.css({ " pointer-events": "none", "background-color": "#ccc" })
-    }
-    $add_btn.click(function () {
-        ++i;
-        $buy_num.val(i);
-        $del_btn.css({ " pointer-events": "auto", "background-color": "#000" })
-    });
-    $del_btn.click(function () {
-        if (i > 1) {
-            --i;
-            $buy_num.val(i);
-        } else if (i = 1) {
-            $del_btn.css({ " pointer-events": "none", "background-color": "#ccc" })
+           
+            var $add_btn = $(".body>.show_info>.buy_box>.num>.num_add");
+            var $del_btn = $(".body>.show_info>.buy_box>.num>.num_del");
+            var $buy_num = $(".body>.show_info>.buy_box>.num>.buy_num");
+           
+          
+            console.log(parseInt($buy_num.val()))
+            // console.log($del_btn)
+            // 购物车的加减功能
+            var i;
+            if (i = 1) {
+                $del_btn.css({ " pointer-events": "none", "background-color": "#ccc" })
+            }
+            $add_btn.click(function () {
+                ++i;
+                $buy_num.val(i);
+                $del_btn.css({ " pointer-events": "auto", "background-color": "#000" })
+            });
+            $del_btn.click(function () {
+                if (i > 1) {
+                    --i;
+                    $buy_num.val(i);
+                } else if (i = 1) {
+                    $del_btn.css({ " pointer-events": "none", "background-color": "#ccc" })
+                }
+            });
+            var $add_cart = $(".body>.show_info>.buy_box>.buy_box_btn>.btn");
+            $add_cart.click(function(){
+               $.get("http://jx.xuzhixiang.top/ap/api/add-product.php",{
+                   uid:Data.uid,
+                   pid:Data.pid,
+                   pnum:parseInt($buy_num.val())
+               }).then(data=>{
+                   console.log(data);
+               })
+           })
+           
         }
-    });
-        }
-
-  
+        
     })
 </script>
+
 </html>
